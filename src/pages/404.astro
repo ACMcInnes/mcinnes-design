@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const links = [
+  {
+    name: "Projects",
+    url: "/projects",
+    description: "Check out our latest work.",
+    icon: "",
+  },
+  {
+    name: "About",
+    url: "/about",
+    description: "Who, what, or where, is McInnes Design.",
+    icon: "",
+  },
+  {
+    name: "Blog",
+    url: "/blog",
+    description: "Info dump.",
+    icon: "",
+  },
+  { name: "Contact", href: "/contact", description: "Reach out.", icon: "" },
+];
+---
+
+<Layout title="McInnes Design &#124; 404">
+  <main class="mx-auto w-full max-w-7xl px-6 pt-10 pb-16 sm:pb-24 lg:px-8">
+    <img
+      alt="Your Company"
+      src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+      class="mx-auto h-10 w-auto sm:h-12"
+    />
+    <div class="mx-auto mt-20 max-w-2xl text-center sm:mt-24">
+      <p class="text-base/8 font-semibold text-indigo-600">404</p>
+      <h1
+        class="mt-4 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-6xl"
+      >
+        This page does not exist
+      </h1>
+      <p
+        class="mt-6 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8"
+      >
+        Not what you were expecting? Check out one of the common links below or
+        contact us.
+      </p>
+    </div>
+    <div class="mx-auto mt-16 flow-root max-w-lg sm:mt-20">
+      <h2 class="sr-only">Popular pages</h2>
+      <ul
+        role="list"
+        class="-mt-6 divide-y divide-gray-900/5 border-b border-gray-900/5"
+      >
+        {
+          links.map((link) => (
+            <li class="relative flex gap-x-6 py-6">
+              <div class="flex size-10 flex-none items-center justify-center rounded-lg ring-1 shadow-xs ring-gray-900/10">
+                {/* link icon */}
+              </div>
+              <div class="flex-auto">
+                <h3 class="text-sm/6 font-semibold text-gray-900">
+                  <a href={link.url}>
+                    <span aria-hidden="true" class="absolute inset-0" />
+                    {link.name}
+                  </a>
+                </h3>
+                <p class="mt-2 text-sm/6 text-gray-600">{link.description}</p>
+              </div>
+              <div class="flex-none self-center">{/* arrow icon */}</div>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-10 flex justify-center">
+        <a href="/" class="text-sm/6 font-semibold text-indigo-600">
+          <span aria-hidden="true">&larr;</span> Back to home
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,11 +1,107 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import amThumbnail from '../assets/am_thumbnail.jpg';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="McInnes Design | Home">
+  <div class="bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-base/7 font-semibold text-indigo-600">
+        A boutique design and development agency
+      </p>
+      <h1
+        class="mt-2 text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl"
+      >
+        McInnes Design
+      </h1>
+      <p
+        class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8"
+      >
+        Proudly Australian owned and operated, based in Brisbane &#124; Meanjin
+      </p>
+    </div>
+  </div>
+  {/* reviews */}
+  <section class="bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <figure class="mx-auto max-w-2xl">
+      <p class="sr-only">5 out of 5 stars</p>
+      <div class="flex gap-x-1 text-indigo-600">
+        <svg
+          class="size-5 flex-none"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <svg
+          class="size-5 flex-none"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <svg
+          class="size-5 flex-none"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <svg
+          class="size-5 flex-none"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <svg
+          class="size-5 flex-none"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+          data-slot="icon"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </div>
+      <blockquote
+        class="mt-10 text-xl/8 font-semibold tracking-tight text-gray-900 sm:text-2xl/9"
+      >
+        <p>
+          &quot;Amazing agency to work for, the team is amazing and always produce top quality work&quot;
+        </p>
+      </blockquote>
+      <figcaption class="mt-10 flex items-center gap-x-6">
+				<Image src={amThumbnail} alt="" class="size-12 rounded-full bg-gray-50" />
+        <div class="text-sm/6">
+          <div class="font-semibold text-gray-900">Andrew McInnes</div>
+          <div class="mt-0.5 text-gray-600">Founder of McInnes Design</div>
+        </div>
+      </figcaption>
+    </figure>
+  </section>
 </Layout>
