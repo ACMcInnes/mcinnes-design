@@ -1,26 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { faRocket, faCircleQuestion, faBookmark, faPhone, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import Icon from "../components/Icon.astro";
 
 const links = [
   {
     name: "Projects",
     url: "/projects",
     description: "Check out our latest work.",
-    icon: "",
+    icon: faRocket,
   },
   {
     name: "About",
     url: "/about",
     description: "Who, what, or where, is McInnes Design.",
-    icon: "",
+    icon: faCircleQuestion,
+  },
+  { 
+    name: "Contact", 
+    url: "/contact", 
+    description: "Reach out.", 
+    icon: faPhone 
   },
   {
     name: "Blog",
     url: "/blog",
     description: "Info dump.",
-    icon: "",
+    icon: faBookmark,
   },
-  { name: "Contact", href: "/contact", description: "Reach out.", icon: "" },
 ];
 ---
 
@@ -32,14 +39,14 @@ const links = [
       class="mx-auto h-10 w-auto sm:h-12"
     />
     <div class="mx-auto mt-20 max-w-2xl text-center sm:mt-24">
-      <p class="text-base/8 font-semibold text-indigo-600">404</p>
+      <p class="text-base/8 font-semibold text-indigo-600 dark:text-indigo-500">404</p>
       <h1
-        class="mt-4 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-6xl"
+        class="mt-4 text-5xl font-semibold tracking-tight text-balance text-gray-900 dark:text-gray-50 sm:text-6xl"
       >
         This page does not exist
       </h1>
       <p
-        class="mt-6 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8"
+        class="mt-6 text-lg font-medium text-pretty text-gray-500 dark:text-gray-200 sm:text-xl/8"
       >
         Not what you were expecting? Check out one of the common links below or
         contact us.
@@ -49,30 +56,32 @@ const links = [
       <h2 class="sr-only">Popular pages</h2>
       <ul
         role="list"
-        class="-mt-6 divide-y divide-gray-900/5 border-b border-gray-900/5"
+        class="-mt-6 divide-y divide-gray-900/5 dark:divide-gray-100/5 border-b border-gray-900/5 dark:border-gray-100/5"
       >
         {
           links.map((link) => (
             <li class="relative flex gap-x-6 py-6">
-              <div class="flex size-10 flex-none items-center justify-center rounded-lg ring-1 shadow-xs ring-gray-900/10">
-                {/* link icon */}
+              <div class="flex size-10 flex-none items-center justify-center rounded-lg ring-1 shadow-xs ring-gray-900/10 dark:bg-gray-800">
+                <Icon icon={link.icon} class="size-6! text-indigo-600 dark:text-indigo-500" />
               </div>
               <div class="flex-auto">
-                <h3 class="text-sm/6 font-semibold text-gray-900">
+                <h3 class="text-sm/6 font-semibold text-gray-900 dark:text-gray-50">
                   <a href={link.url}>
                     <span aria-hidden="true" class="absolute inset-0" />
                     {link.name}
                   </a>
                 </h3>
-                <p class="mt-2 text-sm/6 text-gray-600">{link.description}</p>
+                <p class="mt-2 text-sm/6 text-gray-600 dark:text-gray-300">{link.description}</p>
               </div>
-              <div class="flex-none self-center">{/* arrow icon */}</div>
+              <div class="flex-none self-center">
+                <Icon icon={faChevronRight} class="size-5! text-gray-400 dark:text-gray-200" />
+              </div>
             </li>
           ))
         }
       </ul>
       <div class="mt-10 flex justify-center">
-        <a href="/" class="text-sm/6 font-semibold text-indigo-600">
+        <a href="/" class="text-sm/6 font-semibold text-indigo-600 dark:text-indigo-500">
           <span aria-hidden="true">&larr;</span> Back to home
         </a>
       </div>

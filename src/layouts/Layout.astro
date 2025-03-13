@@ -14,16 +14,12 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="m-0 size-full">
+  <body class="m-0 size-full bg-neutral-50 dark:bg-slate-900 duration-200">
     <Header />
     <slot />
     <Footer />
     <script>
-      document.querySelectorAll(".mobile-menu-toggle")?.forEach((toggle) => {
-        toggle.addEventListener("click", () => {
-          document.querySelector(".mobile-menu")?.classList.toggle("hidden");
-        });
-      });
+      import "../scripts/menutoggle.js";
     </script>
   </body>
 </html>

@@ -1,61 +1,90 @@
 ---
-import Layout from "../../layouts/Layout.astro"
-import { Image } from 'astro:assets';
-import amLogo from '../../assets/am_logo.svg';
-import amThumbnail from '../../assets/am_thumbnail.jpg';
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import amLogo from "../../assets/am_logo.svg";
+import amThumbnail from "../../assets/am_thumbnail.jpg";
+
+const offices = [
+  {
+    location: "Brisbane | Meanjin",
+    address: {
+      street: "123 Test St",
+      city: "Brisbane",
+      state: "QLD",
+      zip: "4000",
+    },
+  },
+  {
+    location: "Melbourne | Naarm",
+    address: {
+      street: "coming soon?",
+      city: "",
+      state: "",
+      zip: "",
+    },
+  },
+];
 ---
 
-<Layout title="McInnes Design &#124; Contact">
-  <div class="bg-white py-8 sm:py-16">
-    <div class="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+<Layout title="McInnes Design | Contact">
+  <div class="py-8 sm:py-16">
+    <div class="relative isolate px-6 py-24 sm:py-32 lg:px-8">
       <div class="mx-auto max-w-xl lg:max-w-4xl">
         <h2
-          class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+          class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-gray-50 sm:text-5xl"
         >
           Contact McInnes Design
         </h2>
-        <p class="mt-2 text-lg/8 text-gray-600">
+        <p class="mt-2 text-lg/8 text-gray-600 dark:text-gray-200">
           Not taking on new projects at this time
         </p>
         <div class="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
-          <form name="contact" action="/contact/success" method="POST" class="lg:flex-auto" data-netlify="true">
+          <form
+            name="contact"
+            action="/contact/success"
+            method="POST"
+            class="lg:flex-auto"
+            data-netlify="true"
+          >
             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
                 <label
-                  for="first-name"
-                  class="block text-sm/6 font-semibold text-gray-900"
-                  >First name</label
+                  for="name"
+                  class="block text-sm/6 font-semibold text-gray-900 dark:text-gray-50"
+                  >Name</label
                 >
                 <div class="mt-2.5">
                   <input
                     type="text"
-                    name="first-name"
-                    id="first-name"
-                    autocomplete="given-name"
-                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                    name="name"
+                    id="name"
+                    autocomplete="name"
+                    placeholder="Joe Citizen"
+                    class="block w-full rounded-md bg-white dark:bg-slate-800 px-3.5 py-2 text-base text-gray-900 dark:text-gray-50 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-800 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 focus:dark:outline-indigo-500"
                   />
                 </div>
               </div>
               <div>
                 <label
-                  for="last-name"
-                  class="block text-sm/6 font-semibold text-gray-900"
-                  >Last name</label
+                  for="email"
+                  class="block text-sm/6 font-semibold text-gray-900 dark:text-gray-50"
+                  >Email</label
                 >
                 <div class="mt-2.5">
                   <input
-                    type="text"
-                    name="last-name"
-                    id="last-name"
-                    autocomplete="family-name"
-                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                    type="email"
+                    name="email"
+                    id="email"
+                    autocomplete="email"
+                    placeholder="email@domain"
+                    class="block w-full rounded-md bg-white dark:bg-slate-800 px-3.5 py-2 text-base text-gray-900 dark:text-gray-50 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-800 invalid:outline-red-500 invalid:dark:outline-red-400 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 focus:dark:outline-indigo-500"
                   />
                 </div>
               </div>
               <div>
                 <label
                   for="budget"
-                  class="block text-sm/6 font-semibold text-gray-900"
+                  class="block text-sm/6 font-semibold text-gray-900 dark:text-gray-50"
                   >Budget</label
                 >
                 <div class="mt-2.5">
@@ -63,14 +92,15 @@ import amThumbnail from '../../assets/am_thumbnail.jpg';
                     id="budget"
                     name="budget"
                     type="text"
-                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                    placeholder="$10,000"
+                    class="block w-full rounded-md bg-white dark:bg-slate-800 px-3.5 py-2 text-base text-gray-900 dark:text-gray-50 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-800 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 focus:dark:outline-indigo-500"
                   />
                 </div>
               </div>
               <div>
                 <label
                   for="website"
-                  class="block text-sm/6 font-semibold text-gray-900"
+                  class="block text-sm/6 font-semibold text-gray-900 dark:text-gray-50"
                   >Website</label
                 >
                 <div class="mt-2.5">
@@ -78,14 +108,15 @@ import amThumbnail from '../../assets/am_thumbnail.jpg';
                     type="url"
                     name="website"
                     id="website"
-                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                    placeholder="https://domain.com.au"
+                    class="block w-full rounded-md bg-white dark:bg-slate-800 px-3.5 py-2 text-base text-gray-900 dark:text-gray-50 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-800 invalid:outline-red-500 invalid:dark:outline-red-400 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 focus:dark:outline-indigo-500"
                   />
                 </div>
               </div>
               <div class="sm:col-span-2">
                 <label
                   for="message"
-                  class="block text-sm/6 font-semibold text-gray-900"
+                  class="block text-sm/6 font-semibold text-gray-900 dark:text-gray-50"
                   >Message</label
                 >
                 <div class="mt-2.5">
@@ -93,7 +124,8 @@ import amThumbnail from '../../assets/am_thumbnail.jpg';
                     id="message"
                     name="message"
                     rows="4"
-                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                    placeholder="What can we help with?"
+                    class="block w-full rounded-md bg-white dark:bg-slate-800 px-3.5 py-2 text-base text-gray-900 dark:text-gray-50 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-800 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 focus:dark:outline-indigo-500"
                   ></textarea>
                 </div>
               </div>
@@ -101,34 +133,49 @@ import amThumbnail from '../../assets/am_thumbnail.jpg';
             <div class="mt-10">
               <button
                 type="submit"
-                class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                class="block w-full rounded-md bg-indigo-600 dark:bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >Let&apos;s talk</button
               >
             </div>
-            <p class="mt-4 text-sm/6 text-gray-500">
+            <p class="mt-4 text-sm/6 text-gray-500 dark:text-gray-400">
               By submitting this form, I agree to the <a
                 href="/privacy-policy"
-                class="font-semibold text-indigo-600">privacy&nbsp;policy</a
+                class="font-semibold text-indigo-600 dark:text-indigo-300"
+                >privacy&nbsp;policy</a
               >.
             </p>
           </form>
           <div class="lg:mt-6 lg:w-80 lg:flex-none">
-            <Image src={amLogo} alt="Developed by Andrew McInnes" class="h-12 w-auto" />
+            <Image
+              src={amLogo}
+              alt="Developed by Andrew McInnes"
+              class="h-12 w-auto dark:invert"
+            />
             <figure class="mt-10">
-              <blockquote class="text-lg/8 font-semibold text-gray-900">
+              <blockquote
+                class="text-lg/8 font-semibold text-gray-900 dark:text-gray-50"
+              >
                 <p>
-                  &quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                  expedita voluptas culpa sapiente alias molestiae. Numquam
+                  &quot;Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Nemo expedita voluptas culpa sapiente alias molestiae. Numquam
                   corrupti in laborum sed rerum et corporis.&quot;
                 </p>
               </blockquote>
               <figcaption class="mt-10 flex gap-x-6">
-                <Image src={amThumbnail} alt="" class="size-12 flex-none rounded-full bg-gray-50" />
+                <Image
+                  src={amThumbnail}
+                  alt=""
+                  class="size-12 flex-none rounded-full bg-gray-50 dark:bg-gray-800"
+                />
                 <div>
-                  <div class="text-base font-semibold text-gray-900">
+                  <div
+                    class="text-base font-semibold text-gray-900 dark:text-gray-50"
+                  >
                     Andrew McInnes
                   </div>
-                  <div class="text-sm/6 text-gray-600">Founder of McInnes Design</div>
+                  <div class="text-sm/6 text-gray-600 dark:text-gray-300">
+                    Founder of McInnes Design
+                  </div>
                 </div>
               </figcaption>
             </figure>
@@ -137,15 +184,15 @@ import amThumbnail from '../../assets/am_thumbnail.jpg';
       </div>
     </div>
 
-    <div class="bg-white py-24 sm:py-32">
+    <div class="py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
           <h2
-            class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+            class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-gray-50 sm:text-5xl"
           >
             Our offices
           </h2>
-          <p class="mt-6 text-lg/8 text-gray-600">
+          <p class="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
             Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate
             id malesuada non. Cras aliquet purus dui laoreet diam sed lacus,
             fames.
@@ -154,32 +201,22 @@ import amThumbnail from '../../assets/am_thumbnail.jpg';
         <div
           class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base/7 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4"
         >
-          <div>
-            <h3
-              class="border-l border-indigo-600 pl-6 font-semibold text-gray-900"
-            >
-              Brisbane &#124; Meanjin
-            </h3>
-            <address
-              class="border-l border-gray-200 pt-2 pl-6 text-gray-600 not-italic"
-            >
-              <p>123 Test St</p>
-              <p>Brisbane, QLD 4000</p>
-            </address>
-          </div>
-          <div>
-            <h3
-              class="border-l border-indigo-600 pl-6 font-semibold text-gray-900"
-            >
-              Melbourne &#124; Naarm
-            </h3>
-            <address
-              class="border-l border-gray-200 pt-2 pl-6 text-gray-600 not-italic"
-            >
-              <p>coming soon?</p>
-              <p>&nbsp;</p>  
-            </address>
-          </div>
+          {
+            offices.map((office) => (
+              <div>
+                <h3 class="border-l border-indigo-600 dark:border-indigo-500 pl-6 font-semibold text-gray-900 dark:text-gray-50">
+                  {office.location}
+                </h3>
+                <address class="border-l border-gray-200 pt-2 pl-6 text-gray-600 dark:text-gray-300 not-italic">
+                  <p>{office.address.street}</p>
+                  <p>
+                    {office.address.city && `${office.address.city},`}&nbsp;
+                    {office.address.state}&nbsp;{office.address.zip}
+                  </p>
+                </address>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
