@@ -1,20 +1,80 @@
 ---
-import Layout from "../../layouts/Layout.astro"
-import { getCollection } from 'astro:content';
-const posts = await getCollection('blog');
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import amThumbnail from "../../assets/am_thumbnail.jpg";
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<Layout title="McInnes Design &#124; Blog">
-    <div class="px-6 py-24 sm:py-32 lg:px-8">
-        <div class="mx-auto max-w-2xl text-center">
-          <p class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-500">Info dump</p>
-          <h2 class="mt-2 text-5xl font-semibold tracking-tight text-gray-900 dark:text-gray-50 sm:text-7xl">Blog</h2>
-          <p class="mt-8 text-lg font-medium text-pretty text-gray-500 dark:text-gray-200 sm:text-xl/8">Click a post, read a post, etc</p>
-          <ul class="mt-8 pt-8 text-gray-800 dark:text-gray-100 border-t border-gray-200 dark:border-gray-700">
-            {posts.map(post => (
-              <li class="py-1"><a href={`/blog/${post.id}`}>{post.data.title}</a></li>
-            ))}
-          </ul>
-        </div>
-      </div>      
+<Layout title="McInnes Design | Blog">
+  <div class="py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p
+          class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-500"
+        >
+          Info dump
+        </p>
+        <h2
+          class="mt-2 text-5xl font-semibold tracking-tight text-gray-900 dark:text-gray-50 sm:text-7xl"
+        >
+          Blog
+        </h2>
+        <p
+          class="mt-8 text-lg font-medium text-pretty text-gray-500 dark:text-gray-200 sm:text-xl/8"
+        >
+          Click a post, read a post, etc
+        </p>
+      </div>
+      <div
+        class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+      >
+        {
+          posts.map((post) => (
+            <article class="flex flex-col items-start justify-between">
+              <div class="relative w-full">
+                <Image
+                  src={post.data.thumbnail.src}
+                  alt={post.data.thumbnail.alt}
+                  class="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
+                />
+                <a href={`/blog/${post.id}`} class="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 dark:ring-gray-100/10 ring-inset" />
+              </div>
+              <div class="max-w-xl">
+                <div class="mt-8 flex items-center gap-x-4 text-xs">
+                  <time
+                    datetime={post.data.date.toDateString()}
+                    class="text-gray-500 dark:text-gray-300"
+                  >
+                    {new Intl.DateTimeFormat("en-AU", { year: "numeric", month: "short", day: "numeric", timeZone: "Australia/Brisbane", }).format(post.data.date)}
+                  </time>
+                </div>
+                <div class="group relative">
+                  <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 dark:text-gray-50 group-hover:text-gray-600 group-hover:dark:text-gray-300">
+                    <a href={`/blog/${post.id}`}>
+                      <span class="absolute inset-0" />
+                      {post.data.title}
+                    </a>
+                  </h3>
+                  <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600 dark:text-gray-200">{post.data.description}</p>
+                </div>
+                <div class="relative mt-8 flex items-center gap-x-4">
+                  <Image
+                    src={amThumbnail}
+                    alt=""
+                    class="size-10 rounded-full bg-gray-100 dark:bg-gray-800"
+                  />
+                  <div class="text-sm/6">
+                    <p class="font-semibold text-gray-900 dark:text-gray-50">Andrew McInnes</p>
+                    <p class="text-gray-600 dark:text-gray-300">Founder</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </Layout>
