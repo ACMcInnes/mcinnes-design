@@ -1,7 +1,19 @@
 ---
 import { Image } from 'astro:assets';
 import amLogo from '../assets/am_logo.svg';
+import mcinnesdesignLogo from '../assets/mcinnes_design_logo.svg';
 import ThemeToggle from '../components/ThemeToggle.astro';
+
+import { faXmark, faBars } from "@fortawesome/free-solid-svg-icons";
+import {
+  faYoutube,
+  faInstagram,
+  faLinkedinIn,
+  faGithub,
+  faMastodon,
+  faBluesky,
+} from "@fortawesome/free-brands-svg-icons";
+import Icon from "../components/Icon.astro";
 
 const links = [
   {
@@ -19,6 +31,39 @@ const links = [
   {
     url: "/blog",
     text: "Blog",
+  },
+];
+
+const socials = [
+  {
+    name: "Youtube",
+    url: "#",
+    icon: faYoutube,
+  },
+  {
+    name: "Instagram",
+    url: "#",
+    icon: faInstagram,
+  },
+  {
+    name: "LinkedIn",
+    url: "#",
+    icon: faLinkedinIn,
+  },
+  {
+    name: "Github",
+    url: "#",
+    icon: faGithub,
+  },
+  {
+    name: "Mastodon",
+    url: "#",
+    icon: faMastodon,
+  },
+  {
+    name: "Bluesku",
+    url: "#",
+    icon: faBluesky,
   },
 ];
 ---
@@ -43,11 +88,7 @@ const links = [
     <div class="flex lg:flex-1">
       <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">McInnes Design</span>
-        <img
-          class="h-8 w-auto"
-          src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=white"
-          alt=""
-        />
+        <Image src={mcinnesdesignLogo} alt="" class="invert h-8 w-auto" loading="eager" />
       </a>
     </div>
     <div class="flex lg:hidden">
@@ -56,20 +97,7 @@ const links = [
         class="mobile-menu-toggle -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-indigo-300"
       >
         <span class="sr-only">Open main menu</span>
-        <svg
-          class="size-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          aria-hidden="true"
-          data-slot="icon"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-        </svg>
+        <Icon icon={faBars} class="size-6!" />
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
@@ -84,7 +112,7 @@ const links = [
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a href="//acmcinnes.au" target="_blank" class="-m-1.5 p-1.5">
         <span class="sr-only">Andrew McInnes</span>
-        <Image src={amLogo} alt="Developed by Andrew McInnes" class="invert h-8 w-auto" />
+        <Image src={amLogo} alt="Developed by Andrew McInnes" class="invert h-8 w-auto" loading="eager" />
       </a>
     </div>
   </nav>
@@ -93,46 +121,34 @@ const links = [
     <!-- Background backdrop, show/hide based on slide-over state. -->
     <div class="mobile-menu-toggle fixed inset-0 z-10"></div>
     <div
-      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 sm:dark:ring-gray-100/10"
     >
       <div class="flex items-center justify-between">
         <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
+          <span class="sr-only">McInnes Design</span>
+          <Image src={amLogo} alt="Developed by Andrew McInnes" class="dark:invert h-8 w-auto" />
           <img
-            class="h-8 w-auto"
-            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+            class="h-8 w-auto dark:text-white"
+            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
             alt=""
           />
         </a>
         <button
           type="button"
-          class="mobile-menu-toggle -m-2.5 rounded-md p-2.5 text-gray-700"
+          class="mobile-menu-toggle -m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-100"
         >
           <span class="sr-only">Close menu</span>
-          <svg
-            class="size-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            aria-hidden="true"
-            data-slot="icon"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18 18 6M6 6l12 12"></path>
-          </svg>
+          <Icon icon={faXmark} class="size-6!" />
         </button>
       </div>
       <div class="mt-6 flow-root">
-        <div class="-my-6 divide-y divide-gray-500/10">
+        <div class="-my-6 divide-y divide-gray-500/10 dark:divide-gray-300/10">
           <div class="space-y-2 py-6">
             {
               links.map((link) => (
                 <a
                   href={link.url}
-                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 dark:text-gray-100 hover:bg-gray-50 hover:dark:bg-gray-700"
                 >
                   {link.text}
                 </a>
@@ -140,12 +156,21 @@ const links = [
             }
           </div>
           <div class="py-6">
-            <a
-              href="#"
-              class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >Log in</a
-            >
+            <a href="//acmcinnes.au" target="_blank" class="-m-1.5 p-1.5">
+              <span class="sr-only">Andrew McInnes</span>
+              <Image src={amLogo} alt="Developed by Andrew McInnes" class="dark:invert h-8 w-auto" />
+            </a>
           </div>
+
+          <div class="mt-16 flex justify-center gap-x-6">
+            {socials.map((social) => (
+              <a href={social.url} class="text-gray-600 hover:text-gray-800  dark:text-gray-400 hover:dark:text-gray-100">
+                <span class="sr-only">{social.name}</span>
+                <Icon icon={social.icon} class="size-6!" />
+              </a>
+            ))}
+          </div>
+
         </div>
       </div>
     </div>

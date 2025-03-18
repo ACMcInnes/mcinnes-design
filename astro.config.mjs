@@ -7,6 +7,10 @@ import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: {
+    prefetchAll: true
+  },
+  
   integrations: [markdoc()],
 
   vite: {

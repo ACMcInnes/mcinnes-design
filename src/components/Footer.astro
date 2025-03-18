@@ -1,5 +1,9 @@
 ---
-import ThemeToggle from '../components/ThemeToggle.astro';
+import { Image } from "astro:assets";
+import mcinnesdesignLogo from "../assets/mcinnes_design_logo.svg";
+import astroLogo from "../assets/astro.svg";
+import netlifyLogo from "../assets/netlify.svg";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import {
   faYoutube,
   faInstagram,
@@ -12,16 +16,16 @@ import Icon from "../components/Icon.astro";
 
 const links = [
   {
-    url: '/projects',
-    text: 'Projects',
+    url: "/projects",
+    text: "Projects",
   },
   {
-    url: '/about',
-    text: 'About',
+    url: "/about",
+    text: "About",
   },
   {
-    url: '/contact',
-    text: 'Contact',
+    url: "/contact",
+    text: "Contact",
   },
   {
     url: "/blog",
@@ -66,27 +70,101 @@ const copyrightYear = new Date().getFullYear();
 ---
 
 <footer>
-  <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8 border-t border-gray-200 dark:border-gray-700">
+  <div
+    class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8 border-t border-gray-200 dark:border-gray-700"
+  >
     <nav
       class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6"
       aria-label="Footer"
     >
-      {links.map((link) => (
-        <a href={link.url} class="text-gray-600 hover:text-gray-900 dark:text-gray-300 hover:dark:text-gray-50">{link.text}</a>
-      ))}
+      {
+        links.map((link) => (
+          <a
+            href={link.url}
+            class="text-gray-600 hover:text-gray-900 dark:text-gray-300 hover:dark:text-gray-50"
+          >
+            {link.text}
+          </a>
+        ))
+      }
     </nav>
     <div class="mt-16 flex justify-center gap-x-6 sm:gap-x-10">
-      {socials.map((social) => (
-        <a href={social.url} class="text-gray-600 hover:text-gray-800  dark:text-gray-400 hover:dark:text-gray-100">
-          <span class="sr-only">{social.name}</span>
-          <Icon icon={social.icon} class="size-6!" />
-        </a>
-      ))}
+      {
+        socials.map((social) => (
+          <a
+            href={social.url}
+            class="text-gray-600 hover:text-gray-800  dark:text-gray-400 hover:dark:text-gray-100"
+          >
+            <span class="sr-only">{social.name}</span>
+            <Icon icon={social.icon} class="size-6!" />
+          </a>
+        ))
+      }
     </div>
+
+    <div class="flex flex-col w-full items-center justify-center mt-12">
+      <p
+        class="flex flex-col place-items-center gap-2 pt-12 px-12 sm:px-20 pb-2 text-gray-900 dark:text-gray-100 border-t border-gray-200 dark:border-gray-700"
+      >
+        <a
+          href="https://acmcinnes.au/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={mcinnesdesignLogo}
+            alt="McInnes Design Logo"
+            class="dark:invert"
+            width={200}
+            height={48}
+          />
+        </a>
+        <span
+          >An <a
+            href="https://acmcinnes.au/"
+            target="_blank"
+            class="text-indigo-600 dark:text-indigo-300">Andrew McInnes</a
+          > Company</span
+        >
+      </p>
+      <p class="pt-8 pb-6 text-gray-900 dark:text-gray-100">Developed using</p>
+      <div class="flex flex-row w-full items-center justify-center">
+        <a
+          href="https://astro.build/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            class="dark:invert"
+            src={astroLogo}
+            alt="Astro Logo"
+            width={218}
+            height={76}
+          />
+        </a>
+        <Icon icon={faPlus} class="size-6! ml-2 mr-6 dark:invert" />
+        <a
+          href="https://www.netlify.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            class="dark:invert"
+            src={netlifyLogo}
+            alt="Netlify Logo"
+            width={200}
+            height={82}
+          />
+        </a>
+      </div>
+    </div>
+
     <p class="mt-10 text-center text-sm/6 text-gray-600 dark:text-gray-300">
       &copy; {copyrightYear} &#124; McInnes Design
     </p>
-    <p class="text-center text-sm/6 text-gray-600 dark:text-gray-300">ABN: 32 205 159 015</p>
+    <p class="text-center text-sm/6 text-gray-600 dark:text-gray-300">
+      ABN: 32 205 159 015
+    </p>
     <p class="mt-8 text-center">
       {/* theme toggle */}
     </p>

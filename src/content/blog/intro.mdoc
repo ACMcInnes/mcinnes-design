@@ -42,3 +42,23 @@ Maybe the real secret was the Rick Rolls we shared along the way.
 Check out [the `@astrojs/markdoc` integration][astro-markdoc] for complete documentation and usage examples.
 
 [astro-markdoc]: https://docs.astro.build/en/guides/integrations-guide/markdoc/
+
+Code block
+
+```javascript
+import { useState } from 'react'
+import { Switch } from '@headlessui/react'
+
+function Example() {
+	const [enabled, setEnabled] = useState(true)
+
+	return (
+		<form action="/notification-settings" method="post">
+			<Switch checked={enabled} onChange={setEnabled} name="notifications">
+				{/* ... */}
+			</Switch>
+			<button>Submit</button>
+		</form>
+	)
+}
+```
