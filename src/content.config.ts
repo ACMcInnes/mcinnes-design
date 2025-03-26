@@ -11,6 +11,10 @@ export const collections = {
         alt: z.string(),
       }),
       date: z.date(),
+      category: z.object({ 
+        title: z.string(), 
+        url: z.string(), 
+      }),
       description: z.string(),
     }),
   })

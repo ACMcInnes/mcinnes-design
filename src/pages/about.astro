@@ -7,24 +7,14 @@ import amThumbnail from "../assets/am_thumbnail.jpg";
 
 const contacts = [
   {
-    name: "Collaborate",
-    email: "collaborate@example.com",
-    phone: "+1 (555) 905-2345",
+    name: "Say G'day",
+    url: "/contact",
+    cta: "Contact Us",
   },
   {
-    name: "Press",
-    email: "press@example.com",
-    phone: "+1 (555) 905-3456",
-  },
-  {
-    name: "Join our team",
-    email: "careers@example.com",
-    phone: "+1 (555) 905-4567",
-  },
-  {
-    name: "Say hello",
-    email: "hello@example.com",
-    phone: "+1 (555) 905-5678",
+    name: "Project Enquiries",
+    url: "/contact",
+    cta: "Contact Us",
   },
 ];
 
@@ -79,20 +69,14 @@ const offices = [
           >
             Our mission
           </h2>
-          <p class="mt-6 text-base/7 text-gray-600 dark:text-gray-300">
-            Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
-            enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
-            praesent donec est. Odio penatibus risus viverra tellus varius sit
-            neque erat velit. Faucibus commodo massa rhoncus, volutpat.
-            Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae
-            sed turpis id.
+          <p class="mt-8 text-base/7 text-gray-600 dark:text-gray-300">
+            At McInnes Design we are focused on providing top tier web design
+            &amp; development services, bespoke application development, and
+            print/digital media content.
           </p>
           <p class="mt-8 text-base/7 text-gray-600 dark:text-gray-300">
-            Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis
-            odio id et. Id blandit molestie auctor fermentum dignissim. Lacus
-            diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices
-            hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem
-            vel integer orci.
+            Think of us as your one stop shop for anything your business or
+            personal project might need.
           </p>
         </div>
         <div class="pt-16 lg:row-span-2 lg:-mr-16 xl:mr-auto">
@@ -102,26 +86,34 @@ const offices = [
             <div
               class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
             >
-              <img
+              <Image
                 alt=""
+                width="560"
+                height="560"
                 src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
                 class="block size-full object-cover"
+                loading="eager"
               />
             </div>
             <div
               class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-40"
             >
-              <img
+              <Image
                 alt=""
+                width="560"
+                height="560"
                 src="https://images.unsplash.com/photo-1557804506-669a67965ba0?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
                 class="block size-full object-cover"
+                loading="eager"
               />
             </div>
             <div
               class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
             >
-              <img
+              <Image
                 alt=""
+                width="560"
+                height="560"
                 src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
                 class="block size-full object-cover"
               />
@@ -129,8 +121,10 @@ const offices = [
             <div
               class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-40"
             >
-              <img
+              <Image
                 alt=""
+                width="560"
+                height="560"
                 src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
                 class="block size-full object-cover"
               />
@@ -139,52 +133,54 @@ const offices = [
         </div>
         <div class="max-lg:mt-16 lg:col-span-1">
           <p class="text-base/7 font-semibold text-gray-500 dark:text-gray-200">
-            The numbers
+            Some stats
           </p>
           <hr class="mt-6 border-t border-gray-200 dark:border-gray-600" />
           <dl class="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
             <div
               class="flex flex-col gap-y-2 border-b border-dotted border-gray-200 dark:border-gray-600 pb-4"
             >
-              <dt class="text-sm/6 text-gray-600 dark:text-gray-300">Raised</dt>
+              <dt class="text-sm/6 text-gray-600 dark:text-gray-300">
+                Australian Based
+              </dt>
               <dd
                 class="order-first text-6xl font-semibold tracking-tight dark:text-gray-50"
               >
-                $<span>150</span>M
+                <span>100</span>%
               </dd>
             </div>
             <div
               class="flex flex-col gap-y-2 border-b border-dotted border-gray-200 dark:border-gray-600 pb-4"
             >
               <dt class="text-sm/6 text-gray-600 dark:text-gray-300">
-                Companies
+                Integration (so far)
               </dt>
               <dd
                 class="order-first text-6xl font-semibold tracking-tight dark:text-gray-50"
               >
-                <span>30</span>K
+                <span>1</span>
               </dd>
             </div>
             <div
-              class="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4"
+              class="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 dark:max-sm:border-gray-600 max-sm:pb-4"
             >
               <dt class="text-sm/6 text-gray-600 dark:text-gray-300">
-                Deals Closed
+                Services
               </dt>
               <dd
                 class="order-first text-6xl font-semibold tracking-tight dark:text-gray-50"
               >
-                <span>1.5</span>M
+                <span>6</span>+
               </dd>
             </div>
             <div class="flex flex-col gap-y-2">
               <dt class="text-sm/6 text-gray-600 dark:text-gray-300">
-                Leads Generated
+                Hours Saved
               </dt>
               <dd
                 class="order-first text-6xl font-semibold tracking-tight dark:text-gray-50"
               >
-                <span>200</span>M
+                <span>200</span>+
               </dd>
             </div>
           </dl>
@@ -203,7 +199,7 @@ const offices = [
           <Image
             src={amThumbnail}
             alt=""
-            class="h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm"
+            class="h-96 w-full flex-none rounded-2xl object-contain bg-[#1C1C1E] shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm"
           />
           <div class="w-full flex-auto">
             <h2
@@ -279,10 +275,7 @@ const offices = [
               Get in touch
             </h2>
             <p class="mt-4 text-base/7 text-gray-600 dark:text-gray-300">
-              Not actual contact methods, use the <a
-                class="font-semibold text-indigo-600 dark:text-indigo-500"
-                href="/contact">Contact</a
-              > page if you want to reach out.
+              Have any questions or just want to chat?
             </p>
           </div>
           <div
@@ -296,19 +289,12 @@ const offices = [
                   </h3>
                   <dl class="mt-3 space-y-1 text-sm/6 text-gray-600 dark:text-gray-300">
                     <div>
-                      <dt class="sr-only">Email</dt>
-                      <dd>
-                        <a
-                          class="font-semibold text-indigo-600 dark:text-indigo-500"
-                          href={`mailto:${contact.email}`}
-                        >
-                          {contact.email}
-                        </a>
-                      </dd>
-                    </div>
-                    <div class="mt-1">
-                      <dt class="sr-only">Phone number</dt>
-                      <dd>{contact.phone}</dd>
+                      <a
+                        class="font-semibold text-indigo-600 dark:text-indigo-500"
+                        href={contact.url}
+                      >
+                        {contact.cta}
+                      </a>
                     </div>
                   </dl>
                 </div>

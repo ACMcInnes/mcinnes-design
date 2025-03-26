@@ -1,0 +1,47 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BlogThumb from "../../components/BlogThumb.astro";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import Icon from "../../components/Icon.astro";
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog", ({ data }) => {
+  return data.category.title === "Inspiration";
+});
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Layout title="McInnes Design | Blog">
+  <div class="py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mb-6">
+        <a href="/blog" class="text-indigo-600 dark:text-indigo-300"><Icon icon={faArrowLeft} />{" "}Blog</a>
+      </div>
+      <div class="mx-auto max-w-2xl text-center">
+        <p
+          class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-500"
+        >
+          Info dump
+        </p>
+        <h2
+          class="mt-2 text-5xl font-semibold tracking-tight text-gray-900 dark:text-gray-50 sm:text-7xl"
+        >
+          Blog - Inspiration
+        </h2>
+        <p
+          class="mt-8 text-lg font-medium text-pretty text-gray-500 dark:text-gray-200 sm:text-xl/8"
+        >
+          The latest McInnes Design inspiration
+        </p>
+      </div>
+      <div
+        class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+      >
+        {
+          posts.map((post) => (
+            <BlogThumb post={post} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

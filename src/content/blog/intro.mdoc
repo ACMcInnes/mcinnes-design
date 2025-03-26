@@ -4,6 +4,9 @@ thumbnail:
   src: "/src/assets/astro_markdoc_blog_thumb.jpg"
   alt: "Intro thumbnail"
 date: 2025-01-01
+category:
+  title: "News"
+  url: "/blog/news"
 description: "An intro to Markdoc - test blog post"
 ---
 
@@ -37,6 +40,8 @@ Maybe the real secret was the Rick Rolls we shared along the way.
 
 {% /if %}
 
+[a link](#)
+
 {% /aside %}
 
 Check out [the `@astrojs/markdoc` integration][astro-markdoc] for complete documentation and usage examples.
@@ -62,3 +67,29 @@ function Example() {
 	)
 }
 ```
+
+## More notifications
+
+Note notice
+
+{% aside title="Note" type="note" %}
+
+This is a note
+
+{% /aside %}
+
+Caution notice
+
+{% aside title="Caution" type="caution" %}
+
+This is a cautious note
+
+{% /aside %}
+
+Danger notice
+
+{% aside title="Danger" type="danger" %}
+
+This is a dangerous note
+
+{% /aside %}

@@ -2,13 +2,15 @@
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import Icon from "../components/Icon.astro";
 ---
-<label for="themeToggle" class="self-center text-white hidden md:inline-flex">
-  Theme
-</label>
-<button id="themeToggle" class="fa-stack">
-  <Icon icon={faSun} class="sun size-6! text-white dark:text-transparent fa-stack-1x" />
-  <Icon icon={faMoon} class="moon size-6! text-transparent dark:text-white fa-stack-1x" />
-</button>
+<div class="flex pt-5">
+  <label for="themeToggle" class="self-center dark:text-white inline-flex">
+    Theme
+  </label>
+  <button id="themeToggle" class="fa-stack">
+    <Icon icon={faSun} class="sun size-6! text-yellow-400 dark:text-transparent fa-stack-1x" />
+    <Icon icon={faMoon} class="moon size-6! text-transparent dark:text-white fa-stack-1x" />
+  </button>
+</div>
 
 <script is:inline>
   const theme = (() => {

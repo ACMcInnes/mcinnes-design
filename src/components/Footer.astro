@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import mcinnesdesignLogo from "../assets/mcinnes_design_logo.svg";
 import astroLogo from "../assets/astro.svg";
 import netlifyLogo from "../assets/netlify.svg";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import {
   faYoutube,
   faInstagram,
@@ -81,7 +81,7 @@ const copyrightYear = new Date().getFullYear();
         links.map((link) => (
           <a
             href={link.url}
-            class="text-gray-600 hover:text-gray-900 dark:text-gray-300 hover:dark:text-gray-50"
+            class="text-black dark:text-white border-b-2 border-transparent mb-1 hover:border-current hover:pb-1 hover:mb-0 duration-200 ease-in-out"
           >
             {link.text}
           </a>
@@ -104,10 +104,10 @@ const copyrightYear = new Date().getFullYear();
 
     <div class="flex flex-col w-full items-center justify-center mt-12">
       <p
-        class="flex flex-col place-items-center gap-2 pt-12 px-12 sm:px-20 pb-2 text-gray-900 dark:text-gray-100 border-t border-gray-200 dark:border-gray-700"
+        class="group flex flex-col place-items-center gap-2 pt-12 px-12 sm:px-20 pb-2 text-gray-900 dark:text-gray-100 border-t border-gray-200 dark:border-gray-700"
       >
         <a
-          href="https://acmcinnes.au/"
+          href="//acmcinnes.au/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -119,21 +119,19 @@ const copyrightYear = new Date().getFullYear();
             height={48}
           />
         </a>
-        <span
-          >An <a
-            href="https://acmcinnes.au/"
+        <span>
+          An 
+          <a
+            href="//acmcinnes.au/"
             target="_blank"
-            class="text-indigo-600 dark:text-indigo-300">Andrew McInnes</a
-          > Company</span
-        >
+            class="text-indigo-600 dark:text-indigo-300">Andrew McInnes <Icon icon={faArrowUp} class="align-super! ml-auto rotate-45 size-3! group-hover:animate-bounce" /></a
+          > 
+          Company
+        </span>
       </p>
       <p class="pt-8 pb-6 text-gray-900 dark:text-gray-100">Developed using</p>
       <div class="flex flex-row w-full items-center justify-center">
-        <a
-          href="https://astro.build/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a class="group relative" href="//astro.build/" target="_blank" rel="noopener noreferrer">
           <Image
             class="dark:invert"
             src={astroLogo}
@@ -141,13 +139,10 @@ const copyrightYear = new Date().getFullYear();
             width={218}
             height={76}
           />
+          <Icon icon={faArrowUp} class="invisible group-hover:visible group-hover:animate-bounce absolute top-0 right-0 rotate-45 size-3! text-black dark:text-white" />
         </a>
         <Icon icon={faPlus} class="size-6! ml-2 mr-6 dark:invert" />
-        <a
-          href="https://www.netlify.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a class="group relative" href="//www.netlify.com/" target="_blank" rel="noopener noreferrer">
           <Image
             class="dark:invert"
             src={netlifyLogo}
@@ -155,18 +150,29 @@ const copyrightYear = new Date().getFullYear();
             width={200}
             height={82}
           />
+          <Icon icon={faArrowUp} class="invisible group-hover:visible group-hover:animate-bounce absolute top-0 right-0 rotate-45 size-3! text-black dark:text-white" />
         </a>
       </div>
     </div>
 
-    <p class="mt-10 text-center text-sm/6 text-gray-600 dark:text-gray-300">
+    <a
+      href="https://status.mcinnes.design/"
+      class="mt-10 mb-5 group flex items-center justify-center gap-x-2"
+      target="_blank"
+    >
+      <div
+        class={`group-hover:animate-pulse text-green-400 bg-green-400/10 flex-none rounded-full p-1`}
+      >
+        <div class="size-3 rounded-full bg-current"></div>
+      </div>
+      <div class="text-black dark:text-white text-xs">System Status</div>
+    </a>
+
+    <p class="text-center text-sm/6 text-gray-600 dark:text-gray-300">
       &copy; {copyrightYear} &#124; McInnes Design
     </p>
     <p class="text-center text-sm/6 text-gray-600 dark:text-gray-300">
       ABN: 32 205 159 015
-    </p>
-    <p class="mt-8 text-center">
-      {/* theme toggle */}
     </p>
   </div>
 </footer>
