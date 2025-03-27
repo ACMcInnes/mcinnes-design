@@ -1,8 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import amLogo from "../assets/am_logo.svg";
-import mcinnesdesignLogo from "../assets/mcinnes_design_logo_alt.svg";
-import mcinnesdesignHeader from "../assets/mcinnes_design_header.svg";
+import AMLogo from "../assets/am_logo.svg";
+import McinnesDesignLogo from "../assets/mcinnes_design_logo_alt.svg";
 import HeaderSVG from "../assets/mcinnes_design_header.svg";
 import ThemeToggle from "../components/ThemeToggle.astro";
 
@@ -101,11 +100,7 @@ const socials = [
       <div class="flex items-center justify-between">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">McInnes Design</span>
-          <Image
-            src={mcinnesdesignLogo}
-            alt="Developed by Andrew McInnes"
-            class="dark:invert h-8 w-auto"
-          />
+          <McinnesDesignLogo title="McInnes Design Logo" class="dark:invert h-8 w-auto" />
         </a>
         <button
           type="button"
@@ -136,11 +131,7 @@ const socials = [
               class="-m-1.5 p-1.5 flex flex-row items-center"
             >
               <p class="text-small dark:text-white">an {" "}</p>
-              <Image
-                src={amLogo}
-                alt="Developed by Andrew McInnes"
-                class="dark:invert h-8 w-auto"
-              />
+              <AMLogo title="Andrew McInnes" class="dark:invert h-8 w-auto" />
               <p class="text-small dark:text-white">{" "}company</p>
               <Icon icon={faArrowUp} class="ml-auto rotate-45 size-4! dark:text-white" />
             </a>
@@ -177,12 +168,7 @@ const socials = [
       <p class="text-base content-end pb-2">by</p>
       <a href="//acmcinnes.au" target="_blank" class="group relative content-end pb-2.5">
         <span class="sr-only">Andrew McInnes</span>
-        <Image
-          src={amLogo}
-          alt="Developed by Andrew McInnes"
-          class="invert-20 group-hover:invert-10 dark:invert-80 group-hover:dark:invert h-12 w-auto"
-          loading="eager"
-        />
+        <AMLogo title="Developed by Andrew McInnes" class="invert-20 group-hover:invert-10 dark:invert-80 group-hover:dark:invert h-12 w-auto" />
         <Icon icon={faArrowUp} class="absolute invisible top-3 right-0 rotate-45 size-3! group-hover:visible group-hover:animate-bounce" />
       </a>
     </div>

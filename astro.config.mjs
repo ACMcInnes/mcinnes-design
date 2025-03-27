@@ -17,6 +17,10 @@ export default defineConfig({
     svg: true,
   },
 
+  image: {
+    domains: ["images.unsplash.com"],
+  },
+
   integrations: [markdoc()],
 
   vite: {

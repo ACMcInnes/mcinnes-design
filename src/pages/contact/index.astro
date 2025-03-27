@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import amLogo from "../../assets/am_logo.svg";
+import AMLogo from "../../assets/am_logo.svg";
 import amThumbnail from "../../assets/am_thumbnail.jpg";
 
 const offices = [
@@ -146,11 +146,7 @@ const offices = [
             </p>
           </form>
           <div class="lg:mt-6 lg:w-80 lg:flex-none">
-            <Image
-              src={amLogo}
-              alt="Developed by Andrew McInnes"
-              class="h-12 w-auto dark:invert"
-            />
+            <AMLogo title="Andrew McInnes" class="h-12 w-auto dark:invert" />
             <figure class="mt-10">
               <blockquote
                 class="text-lg/8 font-semibold text-gray-900 dark:text-gray-50"
