@@ -1,13 +1,12 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import BlogThumb from "../../components/BlogThumb.astro";
+import Layout from "../../../layouts/Layout.astro";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import Icon from "../../components/Icon.astro";
+import Icon from "../../../components/Icon.astro";
 import { getCollection } from "astro:content";
-const posts = await getCollection("blog", ({ data }) => {
-  return data.category.title === "News";
-});
-posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const allPosts = await getCollection("blog");
+const categories = [...new Set(allPosts.map((post) => post.data.category.slug).flat())];
+
 ---
 
 <Layout title="McInnes Design | Blog">
@@ -25,20 +24,31 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
         <h2
           class="mt-2 text-5xl font-semibold tracking-tight text-gray-900 dark:text-gray-50 sm:text-7xl"
         >
-          Blog - News
+          Blog - Categories
         </h2>
         <p
           class="mt-8 text-lg font-medium text-pretty text-gray-500 dark:text-gray-200 sm:text-xl/8"
         >
-          The latest McInnes Design news
+          Like your blog content sorted, we&apos;ve got your back. Check out our blog categories below.
         </p>
       </div>
       <div
         class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
       >
         {
-          posts.map((post) => (
-            <BlogThumb post={post} />
+          categories.map((category) => (
+            <article class="flex flex-col items-start justify-between">
+              <div class="max-w-xl">
+                <div class="group relative">
+                  <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 dark:text-gray-50 group-hover:text-gray-600 group-hover:dark:text-gray-300">
+                    <a href={`/blog/categories/${category}`}>
+                      <span class="absolute inset-0" />
+                      {`${category.charAt(0).toUpperCase()}${category.slice(1)}`}
+                    </a>
+                  </h3>
+                </div>
+              </div>
+            </article>
           ))
         }
       </div>

@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import { faHashtag } from "@fortawesome/free-solid-svg-icons";
+import { faHashtag, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import Icon from "../components/Icon.astro";
 
 import { Image } from "astro:assets";
@@ -53,7 +53,7 @@ const specifications = [
 ];
 ---
 
-<Layout title="McInnes Design | Projects">
+<Layout title="McInnes Design | Projects" description="Check out our latest work, what we've done for our clients and what we could do for you">
   <div class="px-6 pt-24 pb-6 sm:pt-32 sm:pb-8 lg:px-8">
     <div class="mx-auto max-w-2xl text-center">
       <p class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-500">
@@ -77,7 +77,10 @@ const specifications = [
             class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl"
           >
             Neto Addon Example
-            <Icon icon={faHashtag} class="align-top! invisible group-hover:visible size-6! text-gray-400 dark:text-gray-300" />
+            <Icon
+              icon={faHashtag}
+              class="align-top! invisible group-hover:visible size-6! text-gray-400 dark:text-gray-300"
+            />
           </h2>
         </a>
         <p class="mt-4 text-gray-500 dark:text-gray-300">
@@ -105,7 +108,7 @@ const specifications = [
                 <Image
                   alt={feature.imageAlt}
                   src={feature.imageSrc}
-                  class="aspect-5/2 w-full rounded-lg ring-1 ring-gray-900/10 dark:ring-gray-100/10 bg-gray-100 object-cover"
+                  class="aspect-5/2 w-full rounded-lg ring-1 ring-gray-900/10 dark:ring-gray-100/10 bg-gray-900/10 dark:bg-gray-100/10 object-cover"
                 />
               </div>
             </div>
@@ -152,25 +155,44 @@ const specifications = [
 
         <div>
           <Image
-            alt="Black kettle with long pour spot and angled body on marble counter next to coffee mug and pour-over system."
+            alt="Our integration is fully documented, making setup a breeze."
             src={addonDocumentation}
-            class="aspect-square w-full rounded-lg ring-1 ring-gray-900/10 dark:ring-gray-100/10 bg-gray-100 object-cover"
+            class="aspect-square w-full rounded-lg ring-1 ring-gray-900/10 dark:ring-gray-100/10 bg-gray-900/10 dark:bg-gray-100/10 object-cover"
           />
           <div
             class="mt-4 grid grid-cols-2 gap-4 sm:mt-6 sm:gap-6 lg:mt-8 lg:gap-8"
           >
             <Image
-              alt="Detail of temperature setting button on kettle bass with digital degree readout."
+              alt="Products are just one of the data types that can be synced to the integration."
               src={addonProductSync}
-              class="aspect-square w-full rounded-lg ring-1 ring-gray-900/10 dark:ring-gray-100/10 bg-gray-100 object-cover"
+              class="aspect-square w-full rounded-lg ring-1 ring-gray-900/10 dark:ring-gray-100/10 bg-gray-900/10 dark:bg-gray-100/10 object-cover"
             />
             <Image
-              alt="Kettle spout pouring boiling water into coffee grounds in pour-over mug."
+              alt="Global login through the Neto by Maropost portal."
               src={netoGlobalLogin}
-              class="aspect-square w-full rounded-lg ring-1 ring-gray-900/10 dark:ring-gray-100/10 bg-gray-100 object-cover"
+              class="aspect-square w-full rounded-lg ring-1 ring-gray-900/10 dark:ring-gray-100/10 bg-gray-900/10 dark:bg-gray-100/10 object-cover"
             />
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto max-w-7xl pb-24 sm:px-6 sm:pb-32 lg:px-8">
+    <div class="px-6 text-center sm:px-16">
+      <p
+        class="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-gray-600 dark:text-gray-100"
+      >
+        Check out the live project
+      </p>
+      <div class="mt-4 flex items-center justify-center gap-x-6">
+        <a
+          href="//neto.mcinnes.design/"
+          target="_blank"
+          class="group rounded-md bg-indigo-600 dark:bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 dark:hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          View
+          <Icon icon={faArrowUp} class="rotate-45 group-hover:animate-bounce" />
+        </a>
       </div>
     </div>
   </div>

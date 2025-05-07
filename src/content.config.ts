@@ -13,6 +13,7 @@ export const collections = {
       date: z.date(),
       category: z.object({ 
         title: z.string(), 
+        slug: z.string(),
         url: z.string(), 
       }),
       description: z.string(),

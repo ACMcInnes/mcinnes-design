@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import McinnesDesignLogo from "../assets/mcinnes_design_logo.svg";
 import AstroLogo from "../assets/astro.svg";
 import NetlifyLogo from "../assets/netlify.svg";
@@ -111,7 +110,7 @@ const copyrightYear = new Date().getFullYear();
           target="_blank"
           rel="noopener noreferrer"
         >
-          <McinnesDesignLogo title="McInnes Design Logo" class="dark:invert" width={226} height={82} />
+          <McinnesDesignLogo class="dark:invert" width={226} height={82} />
         </a>
         <span>
           An 
@@ -124,14 +123,14 @@ const copyrightYear = new Date().getFullYear();
         </span>
       </p>
       <p class="pt-8 pb-6 text-gray-900 dark:text-gray-100">Developed using</p>
-      <div class="flex flex-row w-full items-center justify-center">
+      <div class="flex flex-col sm:flex-row w-full items-center justify-center">
         <a class="group relative" href="//astro.build/" target="_blank" rel="noopener noreferrer">
-          <AstroLogo title="Built using Astro" class="dark:invert" width={218} height={76} />
+          <AstroLogo class="dark:invert" width={218} height={76} />
           <Icon icon={faArrowUp} class="invisible group-hover:visible group-hover:animate-bounce absolute top-0 right-0 rotate-45 size-3! text-black dark:text-white" />
         </a>
-        <Icon icon={faPlus} class="size-6! ml-2 mr-6 dark:invert" />
+        <Icon icon={faPlus} class="size-6! mb-4 sm:mb-0 sm:ml-2 sm:mr-6 dark:invert" />
         <a class="group relative" href="//www.netlify.com/" target="_blank" rel="noopener noreferrer">
-          <NetlifyLogo title="Hosted on Netlify" class="dark:invert" width={200} height={82} />
+          <NetlifyLogo class="dark:invert" width={200} height={82} />
           <Icon icon={faArrowUp} class="invisible group-hover:visible group-hover:animate-bounce absolute top-0 right-0 rotate-45 size-3! text-black dark:text-white" />
         </a>
       </div>

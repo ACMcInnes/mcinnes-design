@@ -76,14 +76,15 @@ const socials = [
     aria-label="Global"
   >
     <ThemeToggle />
-    <div class="flex pt-5 ml-6 lg:hidden">
-      <label for="mobileMenu" class="self-center text-gray-900 dark:text-white inline-flex pr-2">
+    <div class="flex pt-3 ml-6 lg:hidden">
+      <label for="mobileMenu" class="self-center text-gray-900 dark:text-white inline-flex pr-1">
         Menu
       </label>
       <button
         type="button"
+        id="mobileMenu"
         name="mobileMenu"
-        class="mobile-menu-toggle -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-indigo-600 dark:text-indigo-300"
+        class="mobile-menu-toggle -m-2.5 inline-flex items-center justify-center rounded-md p-3 text-indigo-600 dark:text-indigo-300"
       >
         <span class="sr-only">Open main menu</span>
         <Icon icon={faBars} class="size-6!" />
@@ -98,9 +99,9 @@ const socials = [
       class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 sm:dark:ring-gray-100/10"
     >
       <div class="flex items-center justify-between">
-        <a href="#" class="-m-1.5 p-1.5">
+        <a href="/" class="-m-1.5 p-1.5">
           <span class="sr-only">McInnes Design</span>
-          <McinnesDesignLogo title="McInnes Design Logo" class="dark:invert h-8 w-auto" />
+          <McinnesDesignLogo class="dark:invert h-8 w-auto" />
         </a>
         <button
           type="button"
@@ -131,13 +132,12 @@ const socials = [
               class="-m-1.5 p-1.5 flex flex-row items-center"
             >
               <p class="text-small dark:text-white">an {" "}</p>
-              <AMLogo title="Andrew McInnes" class="dark:invert h-8 w-auto" />
+              <AMLogo class="dark:invert h-8 w-auto" />
               <p class="text-small dark:text-white">{" "}company</p>
               <Icon icon={faArrowUp} class="ml-auto rotate-45 size-4! dark:text-white" />
             </a>
           </div>
-
-          <div class="mt-16 flex justify-center gap-x-6">
+          <div class="py-16 flex justify-center gap-x-6">
             {
               socials.map((social) => (
                 <a
@@ -150,13 +150,25 @@ const socials = [
               ))
             }
           </div>
+          <a
+            href="https://status.mcinnes.design/"
+            class="mt-10 mb-5 group flex items-center justify-center gap-x-2"
+            target="_blank"
+          >
+            <div
+              class={`group-hover:animate-pulse text-green-400 bg-green-400/10 flex-none rounded-full p-1`}
+            >
+              <div class="size-3 rounded-full bg-current"></div>
+            </div>
+            <div class="text-black dark:text-white text-xs">System Status</div>
+          </a>
         </div>
       </div>
     </div>
   </div>
 
   <a href="/">
-    <HeaderSVG title="McInnes Design Logo" class="h-auto w-full pt-5 px-5 text-indigo-600 dark:text-indigo-500" />
+    <HeaderSVG class="h-auto w-full mt-5 px-5 text-indigo-600 dark:text-indigo-500" />
   </a>
   <div
     class="px-5 text-5xl flex justify-end gap-4 uppercase font-semibold tracking-tight text-gray-900 dark:text-gray-50 sm:text-7xl"
@@ -168,7 +180,7 @@ const socials = [
       <p class="text-base content-end pb-2">by</p>
       <a href="//acmcinnes.au" target="_blank" class="group relative content-end pb-2.5">
         <span class="sr-only">Andrew McInnes</span>
-        <AMLogo title="Developed by Andrew McInnes" class="invert-20 group-hover:invert-10 dark:invert-80 group-hover:dark:invert h-12 w-auto" />
+        <AMLogo class="invert-20 group-hover:invert-10 dark:invert-80 group-hover:dark:invert h-12 w-auto" />
         <Icon icon={faArrowUp} class="absolute invisible top-3 right-0 rotate-45 size-3! group-hover:visible group-hover:animate-bounce" />
       </a>
     </div>

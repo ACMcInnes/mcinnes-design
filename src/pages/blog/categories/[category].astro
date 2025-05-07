@@ -1,20 +1,41 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import BlogThumb from "../../components/BlogThumb.astro";
+import Layout from "../../../layouts/Layout.astro";
+import BlogThumb from "../../../components/BlogThumb.astro";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import Icon from "../../components/Icon.astro";
+import Icon from "../../../components/Icon.astro";
 import { getCollection } from "astro:content";
-const posts = await getCollection("blog", ({ data }) => {
-  return data.category.title === "Inspiration";
-});
+
+
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+  const uniqueTags = [...new Set(allPosts.map((post) => post.data.category.slug).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.category.slug.includes(tag)
+    );
+    return {
+      params: { category: tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { category } = Astro.params;
+const { posts } = Astro.props;
+
+const formattedCategory = `${category.charAt(0).toUpperCase()}${category.slice(1)}`;
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<Layout title="McInnes Design | Blog">
+<Layout title="McInnes Design | Blog" description={`Read up on the latest ${formattedCategory} blog posts`}>
   <div class="py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mb-6">
         <a href="/blog" class="text-indigo-600 dark:text-indigo-300"><Icon icon={faArrowLeft} />{" "}Blog</a>
+        {" "}<span class="text-indigo-600 dark:text-indigo-300">&sol;</span>{" "}
+        <a href={`/blog/categories`} class="text-indigo-600 dark:text-indigo-300">Categories</a>
       </div>
       <div class="mx-auto max-w-2xl text-center">
         <p
@@ -25,12 +46,12 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
         <h2
           class="mt-2 text-5xl font-semibold tracking-tight text-gray-900 dark:text-gray-50 sm:text-7xl"
         >
-          Blog - Inspiration
+          Blog - {formattedCategory}
         </h2>
         <p
           class="mt-8 text-lg font-medium text-pretty text-gray-500 dark:text-gray-200 sm:text-xl/8"
         >
-          The latest McInnes Design inspiration
+          The latest McInnes Design {formattedCategory}
         </p>
       </div>
       <div

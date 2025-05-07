@@ -9,13 +9,13 @@ import {
   faGears,
   faLock,
   faRotate,
-  faArrowUpRightFromSquare,
+  faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faHtml5,
   faCss,
   faReact,
-  faSquareJs,
+  faJs,
   faFigma,
 	faSketch,
 	faFontAwesome,
@@ -136,7 +136,7 @@ const timeline = [
             href="/contact"
             class="rounded-md bg-white dark:bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-indigo-600 dark:text-gray-50 shadow-xs hover:bg-gray-100 dark:hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            Get started
+            What can we build for you?
           </a>
         </div>
       </div>
@@ -273,20 +273,20 @@ const timeline = [
             </dl>
 
             <div
-              class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start"
+              class="mt-10 flex flex-col items-center justify-center gap-y-6 lg:justify-start"
             >
+              <a
+                href="//neto.mcinnes.design/"
+                target="_blank"
+                class="group text-sm/6 font-semibold text-indigo-500 dark:text-indigo-400"
+              >
+                View the Neto Addon Example <Icon icon={faArrowUp} class="align-super! ml-auto rotate-45 size-3! group-hover:animate-bounce" />
+              </a>
               <a
                 href="/projects"
                 class="rounded-md bg-indigo-600 dark:bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 dark:hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Read more
-              </a>
-              <a
-                href="//neto.mcinnes.design/"
-                target="_blank"
-                class="text-sm/6 font-semibold text-indigo-500 dark:text-indigo-400"
-              >
-                View <Icon icon={faArrowUpRightFromSquare} class="" />
+                View All Projects
               </a>
             </div>
           </div>
@@ -327,16 +327,16 @@ const timeline = [
         <div
           class="mx-auto mt-10 grid grid-cols-4 items-start justify-items-center gap-x-8 gap-y-10 sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:grid-cols-5"
         >
-					<Icon icon={faHtml5} class="size-24! text-gray-800 dark:text-gray-100" />
-          <Icon icon={faCss} class="size-24! text-gray-800 dark:text-gray-100" />
-					<Icon icon={faSquareJs} class="size-24! text-gray-800 dark:text-gray-100" />
-					<Icon icon={faReact} class="size-24! text-gray-800 dark:text-gray-100" />
-          <Icon icon={faFigma} class="size-24! text-gray-800 dark:text-gray-100" />
-					<Icon icon={faSketch} class="size-24! text-gray-800 dark:text-gray-100" />
-					<Icon icon={faFontAwesome} class="size-24! text-gray-800 dark:text-gray-100" />
-					<Icon icon={faGithub} class="size-24! text-gray-800 dark:text-gray-100" />
-					<Icon icon={faGitlab} class="size-24! text-gray-800 dark:text-gray-100" />
-					<Icon icon={faNodeJs} class="size-24! text-gray-800 dark:text-gray-100" />
+					<Icon icon={faHtml5} class="size-12! sm:size-24! text-gray-800 dark:text-gray-100" />
+          <Icon icon={faCss} class="size-12! sm:size-24! text-gray-800 dark:text-gray-100" />
+					<Icon icon={faJs} class="size-12! sm:size-24! text-gray-800 dark:text-gray-100" />
+					<Icon icon={faReact} class="size-12! sm:size-24! text-gray-800 dark:text-gray-100" />
+          <Icon icon={faFigma} class="size-12! sm:size-24! text-gray-800 dark:text-gray-100" />
+					<Icon icon={faSketch} class="size-12! sm:size-24! text-gray-800 dark:text-gray-100" />
+					<Icon icon={faFontAwesome} class="size-12! sm:size-24! text-gray-800 dark:text-gray-100" />
+					<Icon icon={faGithub} class="size-12! sm:size-24! text-gray-800 dark:text-gray-100" />
+					<Icon icon={faGitlab} class="size-12! sm:size-24! text-gray-800 dark:text-gray-100" />
+					<Icon icon={faNodeJs} class="size-12! sm:size-24! text-gray-800 dark:text-gray-100" />
         </div>
       </div>
     </div>
@@ -364,10 +364,10 @@ const timeline = [
             href="/contact"
             class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            Get started
+            Let&apos;s chat!
           </a>
           <a href="/projects" class="text-sm/6 font-semibold text-white">
-            Projects <span aria-hidden="true">→</span>
+            View Our Work <span aria-hidden="true">→</span>
           </a>
         </div>
         <svg
