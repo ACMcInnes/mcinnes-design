@@ -9,7 +9,7 @@ const { post } = Astro.props;
     <Image
       src={post.data.thumbnail.src}
       alt={post.data.thumbnail.alt}
-      class="aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2"
+      class="aspect-video w-full rounded-2xl bg-gray-900/10 dark:bg-gray-100/10 object-cover sm:aspect-2/1 lg:aspect-3/2"
     />
     <a href={`/blog/${post.id}`} class="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 dark:ring-gray-100/10 ring-inset" />
   </div>
@@ -40,6 +40,7 @@ const { post } = Astro.props;
     <div class="relative mt-8 flex items-center gap-x-4">
       <Image
         src={amThumbnail}
+        width="80"
         alt=""
         class="size-10 rounded-full bg-gray-100 dark:bg-gray-800"
       />

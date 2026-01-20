@@ -109,6 +109,7 @@ const copyrightYear = new Date().getFullYear();
           href="//acmcinnes.au/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Footer menu - McInnes Design Agency, by Andrew McInnes. View personal website. External website."
         >
           <McinnesDesignLogo class="dark:invert" width={226} height={82} />
         </a>
@@ -122,15 +123,15 @@ const copyrightYear = new Date().getFullYear();
           Company
         </span>
       </p>
-      <p class="pt-8 pb-6 text-gray-900 dark:text-gray-100">Developed using</p>
-      <div class="flex flex-col sm:flex-row w-full items-center justify-center">
-        <a class="group relative" href="//astro.build/" target="_blank" rel="noopener noreferrer">
-          <AstroLogo class="dark:invert" width={218} height={76} />
+      <p class="pt-8 pb-3 md:pb-6 text-gray-900 dark:text-gray-100">Developed using</p>
+      <div class="flex flex-row w-full items-center justify-center">
+        <a class="group relative" href="//astro.build/" target="_blank" rel="noopener noreferrer" aria-label="Site built using Astro. View Astro framework. External Site.">
+          <AstroLogo class="w-[8.5rem] md:w-auto dark:invert" width={218} height={76} />
           <Icon icon={faArrowUp} class="invisible group-hover:visible group-hover:animate-bounce absolute top-0 right-0 rotate-45 size-3! text-black dark:text-white" />
         </a>
-        <Icon icon={faPlus} class="size-6! mb-4 sm:mb-0 sm:ml-2 sm:mr-6 dark:invert" />
-        <a class="group relative" href="//www.netlify.com/" target="_blank" rel="noopener noreferrer">
-          <NetlifyLogo class="dark:invert" width={200} height={82} />
+        <Icon icon={faPlus} class="size-5! md:size-6! mb-0 ml-2 mr-6 dark:invert" />
+        <a class="group relative" href="//www.netlify.com/" target="_blank" rel="noopener noreferrer" aria-label="Site hosted using Netlify. View Netlify hosting. External Site.">
+          <NetlifyLogo class="w-[8rem] md:w-auto dark:invert" width={200} height={82} />
           <Icon icon={faArrowUp} class="invisible group-hover:visible group-hover:animate-bounce absolute top-0 right-0 rotate-45 size-3! text-black dark:text-white" />
         </a>
       </div>
