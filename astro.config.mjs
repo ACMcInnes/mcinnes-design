@@ -5,6 +5,8 @@ import markdoc from '@astrojs/markdoc';
 import tailwindcss from '@tailwindcss/vite';
 import netlify from '@astrojs/netlify';
 
+import alpinejs from '@astrojs/alpinejs';
+
 // https://astro.build/config
 export default defineConfig({
   prefetch: {
@@ -17,10 +19,10 @@ export default defineConfig({
   },
 
   image: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "cdn.dummyjson.com"],
   },
 
-  integrations: [markdoc()],
+  integrations: [markdoc(), alpinejs()],
 
   vite: {
     plugins: [tailwindcss()]

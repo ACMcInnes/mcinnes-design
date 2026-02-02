@@ -15,6 +15,14 @@ const { title = "McInnes Design", description = "Welcome to McInnes Design, your
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description}>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+
+    <script is:inline>
+      document.addEventListener('alpine:init', () => {
+        Alpine.store('usedNaaS', false)
+      })
+    </script>
+
   </head>
   <body class="m-0 size-full bg-neutral-50 dark:bg-slate-900 duration-200">
     <Header />

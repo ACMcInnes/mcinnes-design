@@ -2,9 +2,36 @@
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:where(.dark, .dark *));
 
+@source inline("{hover:,}bg-red-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-orange-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-amber-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-yellow-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-lime-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-green-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-emerald-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-teal-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-cyan-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-sky-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-blue-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-indigo-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-violet-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-purple-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-fuchsia-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-pink-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-rose-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-slate-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-gray-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-zinc-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-neutral-{50,{100..900..100},950}");
+@source inline("{hover:,}bg-stone-{50,{100..900..100},950}");
+
+
 @theme {
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --alpine-colour: red;
 }
+
+[x-cloak] { display: none !important; }
 
 /* enable dark mode toggle for code blocks */
 html.dark .astro-code,

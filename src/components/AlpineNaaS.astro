@@ -1,0 +1,51 @@
+---
+---
+
+<div
+  class="mt-6"
+  x-data="{ 
+    naas: '',
+    rateLimited: false,
+    async getNaaS() {
+      $store.usedNaaS = true; 
+      if(!this.rateLimited) {
+        this.naas = '...fetching...';
+        try {
+          const response = await (await fetch('https://naas.isalman.dev/no')).json();
+          if (response.error) {
+            $refs.button.disabled = true;
+            this.rateLimited = true;
+            this.naas = response.error;
+            setTimeout(() => {
+              $refs.button.disabled = false;
+              this.rateLimited = false;
+            }, 30000);
+          } else {
+            this.rateLimited = false;
+            this.naas = response.reason;
+          }
+        } catch (e) {
+          $refs.button.disabled = true;
+          this.rateLimited = true;
+          this.naas = 'Network error';
+          setTimeout(() => {
+            $refs.button.disabled = false;
+            this.rateLimited = false;
+          }, 30000);
+        }      
+      }
+    }
+}">
+  <button 
+    x-ref="button"
+    @click="getNaaS"
+    class="rounded-md bg-indigo-600 dark:bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 dark:hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    Return API response
+  </button>
+  <p class="mt-2 font-bold">Response:&nbsp;<span class="font-normal" x-text="naas"></span></p>
+  <p x-cloak x-show="rateLimited" class="text-xs text-amber-600 dark:text-amber-400">NaaS rate limit reached, try again shortly</p>
+  <div x-cloak x-show="rateLimited">
+    <slot name="message" />
+  </div>
+</div>
