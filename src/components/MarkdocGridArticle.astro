@@ -1,17 +1,28 @@
 ---
+import type { ImageMetadata } from 'astro';
 import { Image } from "astro:assets";
 import placeholder from "../assets/blog/placeholder_thumb.jpg";
 import Icon from "./Icon.astro";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
+interface Props {
+   image: string;
+   tags: string[];
+   title: string;
+   description: string;
+   url: string;
+}
+
 const { image, tags, title, description, url } = Astro.props;
+const assets = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif}');
+
 ---
 
 <article class="flex flex-col items-start justify-between">
   <div class="relative w-full">
     <Image
       alt=""
-      src={image || placeholder}
+      src={assets[image] ? assets[image]() : placeholder}
       class="not-prose aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2 dark:bg-gray-800"
     />
     <div class="absolute inset-0 rounded-2xl inset-ring inset-ring-gray-900/10 dark:inset-ring-white/10" />
