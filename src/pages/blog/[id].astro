@@ -27,5 +27,9 @@ const { Content } = await render(post);
     </div>
     <h1>{post.data.title}</h1>
     <Content />
+    <hr>
+    <div class="not-prose mb-6">
+      <a href="/blog" class="text-indigo-600 dark:text-indigo-300"><Icon icon={faArrowLeft} />{" "}Blog</a>
+    </div>
   </Prose>
 </Layout>

@@ -28,5 +28,22 @@ export default defineMarkdocConfig({
 				title: { type: String },
 			},
 		},
+    grid: {
+			render: component('./src/components/MarkdocGrid.astro'),
+			attributes: {
+				heading: { type: String },
+				description: { type: String },
+			},
+    },
+    article: {
+			render: component('./src/components/MarkdocGridArticle.astro'),
+			attributes: {
+				image: { type: String },
+				tags: { type: Array },
+        title: { type: String },
+        description: { type: String },
+        url: { type: String },
+			},
+    },
 	},
 });

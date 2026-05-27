@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import placeholder from "../assets/blog/placeholder_thumb.jpg";
+import Icon from "./Icon.astro";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+
+const { image, tags, title, description, url } = Astro.props;
+---
+
+<article class="flex flex-col items-start justify-between">
+  <div class="relative w-full">
+    <Image
+      alt=""
+      src={image || placeholder}
+      class="not-prose aspect-video w-full rounded-2xl bg-gray-100 object-cover sm:aspect-2/1 lg:aspect-3/2 dark:bg-gray-800"
+    />
+    <div class="absolute inset-0 rounded-2xl inset-ring inset-ring-gray-900/10 dark:inset-ring-white/10" />
+  </div>
+  <div class="flex max-w-xl grow flex-col justify-between">
+    <div class="mt-8 flex items-center gap-x-4 text-xs">
+      {tags.map((tag: string) => (
+      <div
+        class="relative z-10 rounded-full bg-gray-100 px-3 py-1.5 font-medium text-gray-600 dark:bg-gray-700 dark:text-gray-300"
+      >
+        {tag}
+      </div>
+      ))}
+    </div>
+    <div class="relative grow">
+      <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 dark:text-white">
+        {title}
+      </h3>
+      <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600 dark:text-gray-400">{description}</p>
+    </div>
+    <div class="relative flex items-center gap-x-4 justify-self-end">
+      <div class="text-sm/6">
+        <p class="not-prose font-semibold text-gray-900 dark:text-white">
+          <a href={`//${url}`} target="_blank" class="group">
+            {url}<Icon icon={faArrowUp} class="align-super! ml-auto rotate-45 size-3! group-hover:animate-bounce" />
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
